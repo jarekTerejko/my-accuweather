@@ -4,7 +4,7 @@ const apiKey = "kCBGyuMGpQsTZTmB1BGorbS550PC8ZTd";
 
 const getCity = async city => {
   const resourceUrl =
-    "http://dataservice.accuweather.com/locations/v1/cities/search";
+    "https://dataservice.accuweather.com/locations/v1/cities/search";
 
   const query = `?apikey=${apiKey}&q=${city}`;
 
@@ -21,7 +21,7 @@ const getCity = async city => {
 
 const getWeather = async locationID => {
   const resourceUrl =
-    "http://dataservice.accuweather.com/currentconditions/v1/";
+    "https://dataservice.accuweather.com/currentconditions/v1/";
 
   const query = `${locationID}?apikey=${apiKey}`;
 
@@ -37,7 +37,7 @@ const getWeather = async locationID => {
 // getWeather("329260");
 
 const fiveDaysForecast = async locationID => {
-  resourceUrl = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
+  resourceUrl = "https://dataservice.accuweather.com/forecasts/v1/daily/5day/";
   const query = `${locationID}?apikey=${apiKey}`;
 
   const response = await fetch(herokuApp + resourceUrl + query);
