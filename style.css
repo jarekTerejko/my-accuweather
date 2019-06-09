@@ -1,0 +1,59 @@
+body {
+    background-color: #cecece;
+}
+
+.icon {
+    position: relative;
+    top: -50px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: -50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    border: 2px solid #3a3a3a
+}
+
+small {
+    color: rgb(0, 151, 25)
+}
+
+h5 {
+    font-size: 2rem;
+}
+
+.day {
+    border-top: 1px solid #535353;
+}
+
+.day img {
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgb(27, 27, 27);
+    border-radius: 50%;
+}
+
+.date {
+    font-size: 1.6rem;
+    color: #b71c1c;
+}
+
+.date-small {
+    font-size: 1rem;
+}
+
+.day img:last-child{
+margin-bottom: 15px;
+}
+
+.temp {
+    font-size: 1.6rem;
+    color: #3f51b5;
+}
+
+.conditions {
+    font-size: 1.4rem;
+    color: #bf360c;
+}
+
