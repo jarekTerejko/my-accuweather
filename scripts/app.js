@@ -59,7 +59,8 @@ const updateUI = data => {
       <h6 class="date">Current Weather Conditions</h6>
       <h6 class="date date-small">Now: ${getCurrentTime()}</h6>
       <h4>${cityDetails.EnglishName} <small>${
-    cityDetails.Country.ID}</small></h4>
+    cityDetails.Country.ID
+  }</small></h4>
       <h6>Description: <span class="conditions">${
         weatherDetails.WeatherText
       }</span></h6>

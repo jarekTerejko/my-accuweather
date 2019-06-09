@@ -1,6 +1,6 @@
-// const herokuApp = "https://cors-anywhere.herokuapp.com/"
+const herokuApp = "https://cors-anywhere.herokuapp.com/"
 
-const apiKey = "XckeMGm2mkwrlSWiG6mcgyqNruTbr3wW";
+const apiKey = "kCBGyuMGpQsTZTmB1BGorbS550PC8ZTd";
 
 const getCity = async city => {
   const resourceUrl =
@@ -8,7 +8,7 @@ const getCity = async city => {
 
   const query = `?apikey=${apiKey}&q=${city}`;
 
-  const response = await fetch(resourceUrl + query);
+  const response = await fetch(herokuApp + resourceUrl + query);
 
   const data = await response.json();
 
@@ -25,7 +25,7 @@ const getWeather = async locationID => {
 
   const query = `${locationID}?apikey=${apiKey}`;
 
-  const response = await fetch(resourceUrl + query);
+  const response = await fetch(herokuApp + resourceUrl + query);
 
   const data = await response.json();
 
@@ -40,7 +40,7 @@ const fiveDaysForecast = async locationID => {
   resourceUrl = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/";
   const query = `${locationID}?apikey=${apiKey}`;
 
-  const response = await fetch(resourceUrl + query);
+  const response = await fetch(herokuApp + resourceUrl + query);
 
   const data = await response.json();
 
