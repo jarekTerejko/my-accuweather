@@ -3,6 +3,12 @@ const card = document.querySelector(".card");
 const weatherData = document.querySelector("#weather-data");
 const dayTimeImg = document.querySelector("img.day-time");
 const weatherIcon = document.querySelector(".icon img");
+const currentDate = new Date();
+const currentYear = currentDate.getUTCFullYear()
+const footerYear = document.querySelector(".year")
+footerYear.textContent = currentYear
+
+
 
 const formatTime = date => {
   const formated = new Date(date);
@@ -11,8 +17,9 @@ const formatTime = date => {
 
 const getCurrentTime = () => {
   const now = new Date();
-  const time = now.toLocaleTimeString();
+  let time = now.toLocaleTimeString();
   // const time = now.toLocaleString()
+  time = time.slice(0,5)
   return time;
 };
 getCurrentTime();
@@ -46,9 +53,9 @@ const updateUI = data => {
       <img src="img/icons/${day.Night.Icon}.svg" alt="${
         day.Night.IconPhrase
       }" />
-    </div>
     <div class="card-action">
       <a href="${day.MobileLink}" target="_blank">Day Details</a>
+    </div>
     </div>
 `;
     })
@@ -78,7 +85,7 @@ const updateUI = data => {
   const iconSrc = `img/icons/${weatherDetails.WeatherIcon}.svg`;
   weatherIcon.src = iconSrc;
 
-  let timeSrc = weatherDetails.IsDayTime ? "img/day.svg" : "img/night.svg";
+  let timeSrc = weatherDetails.IsDayTime ? "img/day.jpg" : "img/night.jpg";
 
   // if(weatherDetails.IsDayTime) {
   //     timeSrc = "img/day.svg"
@@ -127,8 +134,10 @@ cityForm.addEventListener("submit", e => {
   localStorage.setItem("city", city);
 });
 
+
 if (localStorage.getItem("city")) {
   updateCityName(localStorage.getItem("city"))
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 }
+

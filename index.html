@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://kit.fontawesome.com/d2a4909307.js"></script>
     <!-- Compiled and minified CSS -->
     <link
       rel="stylesheet"
@@ -16,49 +17,55 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col s12 m8 offset-m2 l6 offset-l3">
-          <h1 class="center white-text">Weather App</h1>
-          <form class="change-location">
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <h1 class="center white-text">Weather App</h1>
+            <form class="change-location">
               <div class="input-field">
-            <input type="text" name="city" id="city-search" />
-            <label for="city">Enter a location</label>
-            </div>
-            <button type="submit" class="btn">Search</button>
-          </form>
-
-          <!-- <div class="card">
-                    <img src="https://via.placeholder.com/400x300" alt="" class="responsive-img time"/>
-                </div> -->
-          <div class="card center-align hide  grey lighten-4">
-            <div class="card-image">
-              <img src="https://via.placeholder.com/400x300" alt="" class="day-time" />
-              <!-- <span class="card-title">City name Card title</span> -->
-            </div>
-            <div class="icon">
-                <img src="" alt="">
-            </div>
-            <div id="weather-data">
-              <div class="card-content">
-                <h5>City name</h5>
-                <h6>Weather condition</h6>
-                <p>
-                  <span>temp</span>
-                  <span>&deg;C</span>
-                </p>
+                <input type="text" name="city" id="city-search" />
+                <label for="city">Enter a location</label>
               </div>
-              <div class="card-action">
-                <a href="#" target="_blank">More</a>
+              <button type="submit" class="btn">Search</button>
+            </form>
+            <div class="card center-align hide  grey lighten-4">
+              <div class="card-image">
+                <img
+                  src="https://via.placeholder.com/400x300"
+                  alt=""
+                  class="day-time"
+                />
+              </div>
+              <div class="icon">
+                <img src="" alt="" />
+              </div>
+              <div id="weather-data">
+                <div class="card-content">
+                  <h5>City name</h5>
+                  <h6>Weather condition</h6>
+                  <p>
+                    <span>temp</span>
+                    <span>&deg;C</span>
+                  </p>
+                </div>
+                <div class="card-action">
+                  <a href="#" target="_blank">More</a>
+                </div>
               </div>
             </div>
-            
           </div>
         </div>
       </div>
-    </div>
+    </main>
+    <footer class="page-footer">
+      <div class="container">
+        <p class="copyright center">
+          &copy; Jarosław Terejko <span class="year"></span>
+        </p>
+      </div>
+    </footer>
     <script src="scripts/weatherApi.js"></script>
-
     <script src="scripts/app.js"></script>
   </body>
 </html>

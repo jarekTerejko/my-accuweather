@@ -1,13 +1,26 @@
 body {
-    background-color: #cecece;
+    background-color: #2c2c2c;
+    
+}
+
+main {
+    min-height: calc(100vh - 109px);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.input-field input {
+    color: #fff;
 }
 
 .icon {
     position: relative;
     top: -50px;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 102px;
+    height: 102px;
     margin-bottom: -50px;
     margin-left: auto;
     margin-right: auto;
@@ -24,7 +37,7 @@ h5 {
 }
 
 .day {
-    border-top: 1px solid #535353;
+    border-top: 1px solid #7a7a7a;
 }
 
 .day img {
@@ -57,3 +70,10 @@ margin-bottom: 15px;
     color: #bf360c;
 }
 
+.page-footer {
+    padding-bottom: 20px;
+}
+.footer-copyright {
+    line-height: 55px important!;
+
+}
