@@ -4,11 +4,11 @@ const weatherData = document.querySelector("#weather-data");
 const dayTimeImg = document.querySelector("img.day-time");
 const weatherIcon = document.querySelector(".icon img");
 const currentDate = new Date();
-const currentYear = currentDate.getUTCFullYear()
-const footerYear = document.querySelector(".year")
-footerYear.textContent = currentYear
+const currentYear = currentDate.getUTCFullYear();
+const footerYear = document.querySelector(".year");
+footerYear.textContent = currentYear;
 
-
+const forecast = new Forecast();
 
 const formatTime = date => {
   const formated = new Date(date);
@@ -19,7 +19,7 @@ const getCurrentTime = () => {
   const now = new Date();
   let time = now.toLocaleTimeString();
   // const time = now.toLocaleString()
-  time = time.slice(0,5)
+  time = time.slice(0, 5);
   return time;
 };
 getCurrentTime();
@@ -61,13 +61,16 @@ const updateUI = data => {
     })
     .join("");
 
-  weatherData.innerHTML = `
+  console.log(details);
+
+  const currentWeather = () => {
+    return `
     <div class="card-content">
       <h6 class="date">Current Weather Conditions</h6>
       <h6 class="date date-small">Now: ${getCurrentTime()}</h6>
       <h4>${cityDetails.EnglishName} <small>${
-    cityDetails.Country.ID
-  }</small></h4>
+      cityDetails.Country.ID
+    }</small></h4>
       <h6>Description: <span class="conditions">${
         weatherDetails.WeatherText
       }</span></h6>
@@ -79,6 +82,11 @@ const updateUI = data => {
     <div class="card-action">
         <a href="${weatherDetails.MobileLink}" target="_blank">See Details</a>
     </div>
+  `;
+  };
+
+  weatherData.innerHTML = `
+    ${currentWeather()}
     ${details}
   `;
 
@@ -100,23 +108,23 @@ const updateUI = data => {
   }
 };
 
-const updateCityName = async city => {
-  console.log(city);
+// const updateCityName = async city => {
+//   console.log(city);
 
-  const cityDetails = await getCity(city);
-  const weatherDetails = await getWeather(cityDetails.Key);
-  const fiveDaysDetails = await fiveDaysForecast(cityDetails.Key);
+//   const cityDetails = await getCity(city);
+//   const weatherDetails = await getWeather(cityDetails.Key);
+//   const fiveDaysDetails = await fiveDaysForecast(cityDetails.Key);
 
-  console.log(cityDetails);
-  console.log(weatherDetails);
-  console.log(fiveDaysDetails);
+//   console.log(cityDetails);
+//   console.log(weatherDetails);
+//   console.log(fiveDaysDetails);
 
-  return {
-    cityDetails,
-    weatherDetails,
-    fiveDaysDetails
-  };
-};
+//   return {
+//     cityDetails,
+//     weatherDetails,
+//     fiveDaysDetails
+//   };
+// };
 
 cityForm.addEventListener("submit", e => {
   e.preventDefault();
@@ -126,18 +134,22 @@ cityForm.addEventListener("submit", e => {
 
   cityForm.reset();
 
-  updateCityName(city)
+  forecast
+    .updateCityName(city)
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 
-  // localStorage
+  // Set localStorages
   localStorage.setItem("city", city);
 });
 
+const checkLS = () => {
+  if (localStorage.getItem("city")) {
+    forecast
+      .updateCityName(localStorage.getItem("city"))
+      .then(data => updateUI(data))
+      .catch(err => console.log(err));
+  }
+};
 
-if (localStorage.getItem("city")) {
-  updateCityName(localStorage.getItem("city"))
-    .then(data => updateUI(data))
-    .catch(err => console.log(err));
-}
-
+checkLS();
